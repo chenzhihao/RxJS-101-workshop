@@ -1,0 +1,50 @@
+{
+  "rules": {
+    "quotes": [
+      2,
+      "single"
+    ],
+    "linebreak-style": [
+      2,
+      "unix"
+    ],
+    "semi": [
+      2,
+      "always"
+    ],
+    "arrow-body-style": [
+      0,
+      "as-needed"
+    ],
+    "consistent-return" :0,
+    "max-len": 0,
+    "comma-dangle": 0,
+    "no-console": 1,
+    "no-shadow": [2, { "builtinGlobals": false, "hoist": "functions", "allow": [] }],
+    "new-cap": 1,
+    "arrow-spacing": 0,
+    "no-unused-vars": 1,
+    "object-curly-spacing": 0,
+    "jsx-quotes": 1,
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "globals": {
+    "jQuery": false,
+    "_": false,
+    "$": false,
+    "console": false,
+    "module": false,
+    "require": false,
+    "define": false,
+    "__dirname": false
+  }
+}
