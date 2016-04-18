@@ -1,3 +1,5 @@
-# webpack-react-scaffold
+# RxJS 101 workshop for LogicMontior
 
-It's a scaffold for webpack and react project starter.
+Workshop of RxJS 101.
+
+Slides: http://slides.com/hanswe/rxjs-101
