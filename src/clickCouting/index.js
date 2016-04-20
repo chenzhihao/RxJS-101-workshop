@@ -12,24 +12,17 @@ export default function main() {
   var button = document.querySelector('#btn');
   var clickStream = Rx.Observable.fromEvent(button, 'click');
 
-  var countedClickStream = clickStream.buffer(clickStream.debounce(400))
-    .map(function (list) {
-      return list.length;
-    });
+  var countedClickStream = clickStream.buffer(clickStream.debounce(400)).map(list => list.length);
 
-  const multipleClickStream = countedClickStream.filter(x => {
-    return x >= 2;
-  });
+  const multipleClickStream = countedClickStream.filter(x => x >= 2);
 
-  const singleClickStream = countedClickStream.filter(x => {
-    return x === 1;
-  });
+  const singleClickStream = countedClickStream.filter(x => x === 1);
 
   multipleClickStream.subscribe(times => $('#text').html(`<div style="color:red">${times} times clicked</div>`));
   singleClickStream.subscribe(times => $('#text').text(`${times} time clicked`));
 
 
- Rx.Observable.merge(multipleClickStream, singleClickStream).debounce(200).delay(1000).subscribe(()=> {
+  Rx.Observable.merge(multipleClickStream, singleClickStream).debounce(200).delay(1000).subscribe(()=> {
     $('#text').text('');
   });
 };

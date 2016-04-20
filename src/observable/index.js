@@ -38,8 +38,8 @@ export default function main() {
 `);
 
 
-  var button = document.querySelector('#btn1');
-  var clickStream = Rx.Observable.fromEvent(button, 'click');
+  const button = document.querySelector('#btn1');
+  const clickStream = Rx.Observable.fromEvent(button, 'click');
 
   clickStream.take(1).flatMap(()=> Rx.Observable.range(1, 4)).subscribe((i)=> {
     $('#text1').append(`--- ${i}`);
@@ -79,7 +79,7 @@ export default function main() {
   // });
 
   Rx.Observable.fromEvent($('#btn3'), 'click').take(1).flatMap(
-    ()=> Rx.Observable.from([promise1,promise2]).flatMap(p=>p)
+    ()=> Rx.Observable.from([promise1, promise2]).flatMap(p=>p)
   ).subscribe((val)=> {
     $('#text3').append(`--- ${val} `);
   }, err=> {
@@ -88,3 +88,6 @@ export default function main() {
     $('#text3').append('--- X');
   });
 };
+
+const observable = Rx.Observable.fromEvent();
+
