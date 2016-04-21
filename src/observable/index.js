@@ -49,10 +49,10 @@ export default function main() {
 
   /* ================ */
 
-  var button = document.querySelector('#btn2');
-  var clickStream = Rx.Observable.fromEvent(button, 'click');
+  const button2 = document.querySelector('#btn2');
+  const clickStream2 = Rx.Observable.fromEvent(button2, 'click');
 
-  clickStream.take(1).flatMap(()=> Rx.Observable.timer(0, 1000)).take(5).subscribe((i)=> {
+  clickStream2.take(1).flatMap(()=> Rx.Observable.timer(0, 1000)).take(5).subscribe((i)=> {
     $('#text2').append(`--- ${i}`);
   }, null, ()=> {
     $('#text2').append('--- X');
