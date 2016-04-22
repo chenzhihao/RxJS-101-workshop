@@ -47,7 +47,7 @@ export default function main() {
     $('#text1').append('--- X ');
   });
 
-  /* ================ */
+  // /* ================ */
 
   const button2 = document.querySelector('#btn2');
   const clickStream2 = Rx.Observable.fromEvent(button2, 'click');
@@ -58,20 +58,9 @@ export default function main() {
     $('#text2').append('--- X');
   });
 
-  /* ================ */
+  // /* ================ */
 
-  var promise1 = new Promise(resolve => {
-    setTimeout(()=> {
-      resolve('100ms later');
-    }, 100);
-  });
-
-  var promise2 = new Promise(resolve => {
-    setTimeout(()=> {
-      resolve('0ms later');
-    }, 0);
-  });
-
+  //
   // var promise3 = new Promise((resolve, reject) => {
   //   setTimeout(()=> {
   //     reject('error at 50ms later');
@@ -79,7 +68,33 @@ export default function main() {
   // });
 
   Rx.Observable.fromEvent($('#btn3'), 'click').take(1).flatMap(
-    ()=> Rx.Observable.from([promise1, promise2]).flatMap(p=>p)
+    ()=> Rx.Observable.from([
+      new Promise(resolve => {
+        setTimeout(()=> {
+          resolve('100ms later');
+        }, 100);
+      }),
+      new Promise(resolve => {
+        setTimeout(()=> {
+          resolve('0ms later');
+        }, 0);
+      }),
+      new Promise(resolve => {
+        setTimeout(()=> {
+          resolve('300ms later');
+        }, 300);
+      }),
+      new Promise(resolve => {
+        setTimeout(()=> {
+          resolve('50ms later');
+        }, 50);
+      }),
+      // new Promise((resolve, reject) => {
+      //   setTimeout(()=> {
+      //     reject('30ms later error');
+      //   }, 30);
+      // })
+    ]).flatMap(p=>p)
   ).subscribe((val)=> {
     $('#text3').append(`--- ${val} `);
   }, err=> {
@@ -87,7 +102,5 @@ export default function main() {
   }, ()=> {
     $('#text3').append('--- X');
   });
+
 };
-
-const observable = Rx.Observable.fromEvent();
-

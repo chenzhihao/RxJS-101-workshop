@@ -1,11 +1,10 @@
-import fetch from 'isomorphic-fetch';
+import observable from './observable/index';
+observable();
 
+//
 // import clickTimeCounting from './clickCouting/index';
 // clickTimeCounting();
 //
-// import observable from './observable/index';
-// observable();
-
-import requestResponseOrder from './requestResponseOrder/index';
-requestResponseOrder();
+// import requestResponseOrder from './requestResponseOrder/index';
+// requestResponseOrder();
 
