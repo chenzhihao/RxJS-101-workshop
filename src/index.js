@@ -1,10 +1,10 @@
-import observable from './observable/index';
-observable();
+// import observable from './observable/index';
+// observable();
 
 //
 // import clickTimeCounting from './clickCouting/index';
 // clickTimeCounting();
-//
-// import requestResponseOrder from './requestResponseOrder/index';
-// requestResponseOrder();
+
+import requestResponseOrder from './requestResponseOrder/index';
+requestResponseOrder();
 

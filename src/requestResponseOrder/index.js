@@ -32,7 +32,7 @@ export default function main() {
   clickStream.map(e => {
     return request(++i);
   //  http://reactivex.io/documentation/operators/flatmap.html
-  }).flatMapLatest(res=>res).subscribe(res => {
+  }).concatMap(res=>res).subscribe(res => {
     $('#text').html(`<div>${res}</div>`);
   });
 };
